@@ -63,7 +63,6 @@ export default class PomodoroLoggerPlugin extends Plugin {
 			id: "toggle-pomodoro",
 			name: "뽀모도로 시작/취소",
 			editorCallback: (editor: Editor) => this.handleHotkey(editor),
-			hotkeys: [{ modifiers: [], key: "F6" }],
 		});
 
 		this.addSettingTab(new PomodoroSettingTab(this.app, this));
@@ -163,11 +162,11 @@ export default class PomodoroLoggerPlugin extends Plugin {
 				this.startShortBreak();
 			}
 		} else if (this.state === "shortBreak") {
-			new Notice("☕ 휴식 완료. F6로 다음 뽀모도로를 시작하세요.", 5000);
+			new Notice("☕ 휴식 완료. 단축키로 다음 뽀모도로를 시작하세요.", 5000);
 			this.state = "waiting";
 			this.updateStatusBar();
 		} else if (this.state === "longBreak") {
-			new Notice("🌙 긴 휴식 완료. F6로 새 사이클을 시작하세요.", 5000);
+			new Notice("🌙 긴 휴식 완료. 단축키로 새 사이클을 시작하세요.", 5000);
 			this.completedCycles = 0;
 			this.state = "waiting";
 			this.updateStatusBar();
@@ -203,7 +202,7 @@ export default class PomodoroLoggerPlugin extends Plugin {
 				this.statusBarEl.setText(`🌙 ${timeStr}`);
 				break;
 			case "waiting":
-				this.statusBarEl.setText("🍅 대기 · F6로 시작");
+				this.statusBarEl.setText("🍅 대기 · 단축키로 시작");
 				break;
 		}
 	}
@@ -292,7 +291,7 @@ class PomodoroSettingTab extends PluginSettingTab {
 		new Setting(containerEl)
 			.setName("시작 글귀 형식")
 			.setDesc(
-				"F6 누를 때 줄 끝에 삽입. ⏳]는 완료 시각이 들어갈 자리표시자입니다. 토큰: YYYY, MM, DD, HH, mm"
+				"명령 실행 시 줄 끝에 삽입. ⏳]는 완료 시각이 들어갈 자리표시자입니다. 토큰: YYYY, MM, DD, HH, mm"
 			)
 			.addText((text) =>
 				text
@@ -323,7 +322,7 @@ class PomodoroSettingTab extends PluginSettingTab {
 		new Setting(containerEl)
 			.setName("사이클 모드 활성화")
 			.setDesc(
-				"작업→휴식은 자동, 휴식→작업은 F6 수동. 4회 완료 후 긴 휴식. (기본: 비활성)"
+				"작업→휴식은 자동, 휴식→작업은 단축키 수동. 4회 완료 후 긴 휴식. (기본: 비활성)"
 			)
 			.addToggle((toggle) =>
 				toggle

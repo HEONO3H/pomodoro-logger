@@ -3,7 +3,7 @@
 	"name": "Pomodoro Logger",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "Press F6 to start a Pomodoro timer. Records start and end time inline at the cursor line in your markdown document.",
+	"description": "Start a Pomodoro timer via a configurable hotkey. Records start and end time inline at the cursor line in your markdown document.",
 	"author": "HEONO3H",
 	"isDesktopOnly": false
 }
