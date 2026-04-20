@@ -3,7 +3,7 @@
 	"name": "Pomodoro Logger",
 	"version": "1.0.0",
 	"minAppVersion": "0.15.0",
-	"description": "F6 키로 뽀모도로 타이머를 시작하고, 완료 기록을 현재 줄 끝에 삽입합니다.",
-	"author": "hen0nah2",
+	"description": "Press F6 to start a Pomodoro timer. Records start and end time inline at the cursor line in your markdown document.",
+	"author": "HEONO3H",
 	"isDesktopOnly": false
 }
